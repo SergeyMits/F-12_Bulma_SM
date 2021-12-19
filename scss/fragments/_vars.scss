@@ -1,0 +1,95 @@
+@import '../components/functions';
+
+//other
+$disabled-opacity: .5;
+$gap: 1rem;
+
+//color var
+$danger: #FF3860;
+$white: #FFF;
+$black: #0A0A0A;
+$light: #F5F5F5;
+$dark: #363636;
+$primary: #00D1B2;
+$link: #3273DC;
+$info: #209CEE;
+$success: #48C774;
+$warning: #FFDC7D;
+$br-color: #DBDBDB;
+$br-hover:#B5B5B5;
+$br-focus: #485Fc7;
+
+//font
+$fs-small: calc($gap * .75);
+$fs-normal: $gap;
+$fs-medium: calc($gap * 1.25);
+$fs-large: calc($gap * 1.5);
+
+
+
+
+$colors: (
+    primary: $primary,
+    danger: $danger,
+    link: $link,
+    info: $info,
+    success: $success,
+    warning: $warning,
+);
+
+$primary-light: primary-light($primary);
+$link-light: link-light($link);
+$info-light: info-light($info);
+$success-light: success-light($success);
+$warning-light: warning-light($warning);
+$danger-light: danger-light($danger);
+
+$colors-light: (
+    primary-light: $primary-light,
+    link-light: $link-light,
+    info-light: $info-light,
+    success-light: $success-light,
+    warning-light: $warning-light,
+    danger-light: $danger-light,
+);
+
+$primary-light-text: darken($primary-light, 60%);
+$link-light-text: darken($link-light, 60%);
+$info-light-text: darken($info-light, 50%);
+$success-light-text: darken($success-light, 70%);
+$warning-light-text: darken($warning-light, 65%);
+$danger-light-text: darken($danger-light, 40%);
+
+
+$colors-text: (
+    primary-light: $primary-light-text,
+    link-light: $link-light-text,
+    info-light: $info-light-text,
+    success-light: $success-light-text,
+    warning-light: $warning-light-text,
+    danger-light: $danger-light-text,
+);
+
+// $colors-text: (
+//     primary-light-text: $primary-light-text,
+//     link-light-text: $link-light-text,
+//     info-light-text: $info-light-text,
+//     success-light-text: $success-light-text,
+//     warning-light-text: $warning-light-text,
+//     danger-light-text: $danger-light-text,
+// )
+
+// $colors-text:
+//     $primary-light-text,
+//     $link-light-text,
+//     $info-light-text,
+//     $success-light-text,
+//     $warning-light-text,
+//     $danger-light-text,
+
+$font-size: (
+    small: $fs-small,
+    normal: $fs-normal,
+    medium: $fs-medium,
+    large: $fs-large,
+);

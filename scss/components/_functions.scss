@@ -1,0 +1,32 @@
+@use 'sass:color';
+
+@function primary-light($n) {
+    $a: color.adjust($n, $lightness: 53%);
+    @return color.scale($a, $saturation: -10%); 
+}
+
+@function link-light($n) {
+    $a: color.adjust($n, $lightness: 44%);
+    $b: adjust-hue($a, 10deg);
+    @return darken(color.scale($b, $saturation: -30%), 4%) ;
+}
+ @function info-light($n) {
+    $a: color.adjust($n, $lightness: 47%);
+    $b: color.scale($a, $saturation: -45%);
+    @return darken($b, 5%);
+ }
+
+ @function success-light($n) {
+     $a: color.adjust($n, $lightness: 43%);
+     @return darken($a, 4%);
+ }
+
+ @function warning-light($n) {
+     $a: color.adjust($n, $lightness: 20%);
+     @return color.scale($a, $saturation: -17%);
+ }
+
+ @function danger-light($n) {
+     $a: color.adjust($n, $lightness: 33%);
+     @return color.scale($a, $saturation: -40%);
+ }

@@ -1,0 +1,180 @@
+@use 'sass:color';
+@import '../fragments/vars';
+
+.btn {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: $gap;
+    outline: none;
+    text-decoration: none;
+    padding: calc($gap / 2) $gap;
+    border-radius: calc($gap / 2.67);
+    border: 1px solid $br-color;
+    background-color: $white;
+    color: $dark;
+    text-transform: capitalize;
+    transition-property: background-color, border-color, color;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+    &:hover {
+        background-color: $light;
+        border-color: $br-hover;
+    }
+}
+
+.btn-white {
+    border-color: $white;
+    &:hover {
+        border-color: $light;
+    }
+}
+
+.btn-light {
+    background-color: $light;
+    border-color: $light;
+    &:hover {
+        background-color: darken($light, 5%);
+        border-color: darken($light, 5%);
+    }
+}
+
+.btn-dark {
+    background-color: $dark;
+    border-color: $dark;
+    color: $white;
+    &:hover {
+        background-color: color.adjust($dark, $lightness: 5%);
+        border-color: color.adjust($dark, $lightness: 5%);
+    }
+}
+
+.btn-black {
+    background-color: $black;
+    border-color: $black;
+    color: $white;
+    &:hover {
+        background-color: color.adjust($black, $lightness: 10%);
+        border-color: color.adjust($black, $lightness: 10%);
+    }
+}
+
+.btn-text, .btn-ghost {
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+        background-color: transparent;
+        border-color: transparent;
+        color: $link;
+    }
+}
+
+.btn-ghost {
+    color: $link;
+    &:hover {
+        color:$dark
+    }
+}
+
+
+//Buttons Color
+@each $name, $code in $colors {
+    .btn-#{$name} {
+        background-color: $code;
+        border-color: $code;
+        @if color.whiteness($code) < 45{
+            color: $white;
+        } @else {
+            color: $dark;
+        }
+        &:hover {
+            background-color: color.adjust($code, $lightness: 7%);
+            border-color: color.adjust($code, $lightness: 7%);
+        }
+        &:active {
+            background-color: color.adjust($code, $lightness: -10%);
+            border-color: color.adjust($code, $lightness: -10%); 
+        }
+    }
+}
+
+
+//Buttons Light
+@each $name, $code in $colors-light {
+    .btn-#{$name} {
+        $i: 1;
+        background-color: $code;
+        border-color: $code;
+        color: map-get($colors-text, $name);
+        &:hover {
+            background-color: color.adjust($code, $lightness: -5%);
+            border-color: color.adjust($code, $lightness: -5%);
+        }
+        &:active {
+            background-color: color.adjust($code, $lightness: -15%);
+            border-color: color.adjust($code, $lightness: -15%); 
+        }  
+    }
+}
+
+
+//Buttons Size
+@each $name, $size in $font-size {
+    .btn-#{$name} {
+        font-size: $size;
+        padding: calc($size / 2) $size;
+        line-height: 110%;
+
+    }
+}
+
+.btn-container {
+
+    .btn-normal {
+        line-height: 150%;
+    }
+    .btn-small {
+        border-radius: 2px;
+        line-height: 90%;
+    }
+}
+
+
+//Button Style Outline
+@each $name, $code in $colors {
+    .btn-outline-#{$name} {
+        background-color: transparent;
+        border-color: $code;
+        color: $code;
+        &:hover {
+            background-color: $light;
+            border-color: color.adjust($code, $lightness: -5%);
+        }
+        &:active {
+            background-color: color.adjust($white, $lightness: -10%);
+            border-color: color.adjust($code, $lightness: -10%); 
+        }  
+    }
+}
+
+
+//Button Style Rounded
+.btn-rounded {
+    border-radius: calc($gap * 100);
+}
+
+//Button with icon
+.btn-git-icon {
+    padding: calc($gap / 2.5) calc($gap * .75);
+    line-height: $gap;
+}
+
+//Button States (Disabled)
+.btn-disabled {
+    opacity: $disabled-opacity;
+    pointer-events: none;
+}
+
+
+
+
+
